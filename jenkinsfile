@@ -6,7 +6,8 @@ tpipeline {
     stages {
         stage ("Terraform init") {
             steps {
-                sh "terraform destroy -auto-approve"
+                sh "terraform init"
+                sh "terraform apply -auto-approve"
             }
         }
     }
