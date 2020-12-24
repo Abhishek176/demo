@@ -18,3 +18,8 @@ provider "aws" {
 #     region = "ap-south-1"
 #   }
 # }
+terraform {
+  backend "local" {
+    path = "/var/lib/jenkins/workspace/demo/terraform.tfstate"
+  }
+}
