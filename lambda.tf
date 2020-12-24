@@ -27,3 +27,12 @@ resource "aws_iam_role" "lambda_exec" {
    assume_role_policy = file("lambda_asume_role.json")
 
 }
+
+resource "aws_iam_role_policy" "admin_access" {
+  name = "admin_access"
+
+  role = aws_iam_role.lambda_exec.id
+
+  # TODO: Change resource to be more restrictive
+  policy = file("labda_policy.json")
+}
